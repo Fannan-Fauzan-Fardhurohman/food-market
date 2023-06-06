@@ -85,7 +85,7 @@ class SignupFragment : Fragment() {
 
     private fun initDummy() {
         et_fullname.setText("Fannan Fauzan")
-        et_email.setText("fannan@gmail.com")
+        et_email.setText("fannan123@gmail.com")
         et_passwordSignup.setText("12345678")
     }
 

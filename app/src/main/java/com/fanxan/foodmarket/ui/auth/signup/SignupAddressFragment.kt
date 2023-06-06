@@ -69,7 +69,6 @@ class SignupAddressFragment : Fragment(), SignUpContract.View {
                 et_city.requestFocus()
             } else {
                 presenter.submitRegister(data, it)
-                presenter.submitPhotoRegister(data.filePath!!, it)
             }
 
         }

@@ -1,6 +1,7 @@
 package com.fanxan.foodmarket.network
 
 import com.fanxan.foodmarket.model.response.Wrapper
+import com.fanxan.foodmarket.model.response.home.HomeResponse
 import com.fanxan.foodmarket.model.response.login.LoginResponse
 import io.reactivex.Observable
 import okhttp3.MultipartBody
@@ -33,4 +34,7 @@ interface EndPoint {
     fun registerPhoto(
         @Part profileImage: MultipartBody.Part,
     ): Observable<Wrapper<Any>>
+
+    @GET("food")
+    fun home(): Observable<Wrapper<HomeResponse>>
 }

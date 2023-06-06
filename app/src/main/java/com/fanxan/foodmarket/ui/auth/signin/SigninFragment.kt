@@ -34,11 +34,12 @@ class SigninFragment : Fragment(), SignInContract.View {
 
         presenter = SigninPresenter(this)
 
-//        if (!FoodMarket.getApp().getToken().isNullOrEmpty()) {
-//            val home = Intent(activity, MainActivity::class.java)
-//            startActivity(home)
-//            activity?.finish()
-//        }
+        if (!FoodMarket.getApp().getToken().isNullOrEmpty()) {
+            val home = Intent(activity, MainActivity::class.java)
+            startActivity(home)
+            activity?.finish()
+        }
+
         initDummy()
         initView()
         btnSignUp.setOnClickListener {
@@ -66,9 +67,11 @@ class SigninFragment : Fragment(), SignInContract.View {
 
     override fun onLoginSuccess(loginResponse: LoginResponse) {
         FoodMarket.getApp().setToken(loginResponse.accessToken)
+
         val gson = Gson()
         val json = gson.toJson(loginResponse.user)
         FoodMarket.getApp().setUser(json)
+
         val home = Intent(activity, MainActivity::class.java)
         startActivity(home)
         activity?.finish()

@@ -6,20 +6,19 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.fanxan.foodmarket.R
-import com.fanxan.foodmarket.model.dummy.HomeModel
-import kotlinx.android.synthetic.main.fragment_home.view.*
+import com.fanxan.foodmarket.model.response.home.Data
 import kotlinx.android.synthetic.main.fragment_home.view.tvTitle
 import kotlinx.android.synthetic.main.item_home_horizontal.view.*
 
 class HomeAdapter(
-    private val listData: List<HomeModel>,
+    private val listData: List<Data>,
     private val itemAdapterCallback: ItemAdapterCallback,
 
     ) : RecyclerView.Adapter<HomeAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeAdapter.ViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
-        val view = layoutInflater.inflate(R.layout.item_home_horizontal,parent,false)
+        val view = layoutInflater.inflate(R.layout.item_home_horizontal, parent, false)
         return ViewHolder(view)
     }
 
@@ -33,22 +32,22 @@ class HomeAdapter(
     }
 
     interface ItemAdapterCallback {
-        fun onClick(v: View, data: HomeModel)
+        fun onClick(v: View, data: Data)
     }
 
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bind(data: HomeModel, itemAdapterCallback: ItemAdapterCallback) {
+        fun bind(data: Data, itemAdapterCallback: ItemAdapterCallback) {
             itemView.apply {
-                tvTitle.text = data.title
-                rbFood.rating = data.rating
+                tvTitle.text = data.name
+                rbFood.rating = data.rate?.toFloat() ?: 0f
 
-//                Glide.with(context)
-//                    .load(data.src)
-//                    .into(ivPoster)
+                Glide.with(context)
+                    .load(data.picturePath)
+                    .into(ivPoster)
 
                 itemView.setOnClickListener {
-                    itemAdapterCallback.onClick(it,data)
+                    itemAdapterCallback.onClick(it, data)
                 }
             }
         }
