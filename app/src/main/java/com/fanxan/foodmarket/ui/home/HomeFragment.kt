@@ -120,4 +120,5 @@ class HomeFragment : Fragment(), HomeAdapter.ItemAdapterCallback, HomeContract.V
         progressBarDialog?.dismiss()
     }
 
+
 }

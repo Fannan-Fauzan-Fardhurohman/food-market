@@ -19,7 +19,7 @@
 
     <EditText
         android:id="@+id/et_email"
-        style="@style/EditText.PoppinsNormal14sp020202"
+        style="@style/EditText.PoppinsNormal14sp8D92A3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="6dp"
@@ -35,7 +35,7 @@
 
     <EditText
         android:id="@+id/et_password"
-        style="@style/EditText.PoppinsNormal14sp020202"
+        style="@style/EditText.PoppinsNormal14sp8D92A3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Type Your Password"

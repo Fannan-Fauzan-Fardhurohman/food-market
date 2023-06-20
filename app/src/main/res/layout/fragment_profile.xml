@@ -15,12 +15,14 @@
         android:orientation="vertical">
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/ivPicture"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
             android:layout_marginTop="24dp"
             android:src="@drawable/ic_picture_empty" />
 
         <TextView
+            android:id="@+id/tvName"
             style="@style/TextView.PoppinsNormal18sp020202"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -28,6 +30,7 @@
             android:text="Fannan Fauzan Fardhurohman" />
 
         <TextView
+            android:id="@+id/tvEmail"
             style="@style/TextView.PoppinsNormal14sp8D92A3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

@@ -1,8 +1,10 @@
 package com.fanxan.foodmarket.network
 
 import com.fanxan.foodmarket.model.response.Wrapper
+import com.fanxan.foodmarket.model.response.checkout.CheckoutResponse
 import com.fanxan.foodmarket.model.response.home.HomeResponse
 import com.fanxan.foodmarket.model.response.login.LoginResponse
+import com.fanxan.foodmarket.model.response.transaction.TransactionResponse
 import io.reactivex.Observable
 import okhttp3.MultipartBody
 import retrofit2.http.*
@@ -37,4 +39,20 @@ interface EndPoint {
 
     @GET("food")
     fun home(): Observable<Wrapper<HomeResponse>>
+
+    @FormUrlEncoded
+    @POST("checkout")
+    fun checkout(
+        @Field("food_id") food_id: String,
+        @Field("user_id") user_id: String,
+        @Field("quantity") quantity: String,
+        @Field("total") email: String,
+        @Field("status") status: String
+    ): Observable<Wrapper<CheckoutResponse>>
+
+
+    @GET("transaction")
+    fun transaction(): Observable<Wrapper<TransactionResponse>>
+
+
 }

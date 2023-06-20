@@ -15,7 +15,7 @@ import kotlinx.android.synthetic.main.fragment_detail.*
 
 class DetailFragment : Fragment() {
 
-    var bundle:Bundle ?= null
+    var bundle: Bundle? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,11 +30,14 @@ class DetailFragment : Fragment() {
 
         (activity as DetailActivity).toolbarDetail()
 
-        arguments?.let {
-            DetailFragmentArgs.fromBundle(it).data.let {
-                initView(it)
-            }
-        }
+        val data: Data = requireActivity().intent.getParcelableExtra("data")!!
+        initView(data)
+
+//        arguments?.let {
+//            DetailFragmentArgs.fromBundle(it).data.let {
+//                initView(it)
+//            }
+//        }
         btnOrderNow.setOnClickListener {
             Navigation.findNavController(it).navigate(R.id.action_payment, bundle)
         }

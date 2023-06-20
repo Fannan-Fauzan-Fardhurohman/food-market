@@ -10,23 +10,18 @@ import com.fanxan.foodmarket.model.response.home.Data
 import com.fanxan.foodmarket.utils.Helpers.formatPrice
 import kotlinx.android.synthetic.main.item_home_vertical.view.*
 
-class HomeNewTasteAdapter(
-    private val listData: List<Data>,
-    private val itemAdapterCallback: ItemAdapterCallback,
-
-    ) : RecyclerView.Adapter<HomeNewTasteAdapter.ViewHolder>() {
-
-    override fun onCreateViewHolder(
-        parent: ViewGroup,
-        viewType: Int
-    ): HomeNewTasteAdapter.ViewHolder {
+class HomeNewTasteAdapter (
+    private val listData : List<Data>,
+    private val itemAdapterCallback : ItemAdapterCallback,
+) : RecyclerView.Adapter<HomeNewTasteAdapter.ViewHolder>(){
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         val view = layoutInflater.inflate(R.layout.item_home_vertical, parent, false)
         return ViewHolder(view)
+
     }
 
-
-    override fun onBindViewHolder(holder: HomeNewTasteAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(listData[position], itemAdapterCallback)
     }
 
@@ -34,13 +29,8 @@ class HomeNewTasteAdapter(
         return listData.size
     }
 
-    interface ItemAdapterCallback {
-        fun onClick(v: View, data: Data)
-    }
-
-
-    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bind(data: Data, itemAdapterCallback: ItemAdapterCallback) {
+    class ViewHolder (itemView:View) : RecyclerView.ViewHolder(itemView) {
+        fun bind(data : Data, itemAdapterCallback: ItemAdapterCallback) {
             itemView.apply {
                 tvTitle.text = data.name
                 tvPrice.formatPrice(data.price.toString())
@@ -50,11 +40,13 @@ class HomeNewTasteAdapter(
                     .load(data.picturePath)
                     .into(ivPoster)
 
-                itemView.setOnClickListener {
-                    itemAdapterCallback.onClick(it, data)
-                }
+                itemView.setOnClickListener { itemAdapterCallback.onClick(it, data) }
             }
         }
+    }
+
+    interface ItemAdapterCallback {
+        fun onClick(v: View, data:Data)
     }
 
 }

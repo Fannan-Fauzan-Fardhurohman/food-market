@@ -38,4 +38,10 @@ object Helpers {
         return "IDR " + format.format(price).replace(",".toRegex(), ".")
     }
 
+    fun Long.convertLongtoTime(formatTanggal: String): String {
+        val date = Date(this)
+        val format = SimpleDateFormat(formatTanggal)
+        return format.format(date)
+    }
+
 }

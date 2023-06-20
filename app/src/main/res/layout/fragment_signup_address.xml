@@ -25,7 +25,7 @@
 
         <EditText
             android:id="@+id/et_phoneNumber"
-            style="@style/EditText.PoppinsNormal14sp020202"
+            style="@style/EditText.PoppinsNormal14sp8D92A3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
@@ -42,7 +42,7 @@
 
         <EditText
             android:id="@+id/et_address"
-            style="@style/EditText.PoppinsNormal14sp020202"
+            style="@style/EditText.PoppinsNormal14sp8D92A3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
@@ -59,7 +59,7 @@
 
         <EditText
             android:id="@+id/et_houseNo"
-            style="@style/EditText.PoppinsNormal14sp020202"
+            style="@style/EditText.PoppinsNormal14sp8D92A3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/shape_rectangle_outline_8_020202"
@@ -76,7 +76,7 @@
 
         <EditText
             android:id="@+id/et_city"
-            style="@style/EditText.PoppinsNormal14sp020202"
+            style="@style/EditText.PoppinsNormal14sp8D92A3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/shape_rectangle_outline_8_020202"

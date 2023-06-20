@@ -5,7 +5,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.bumptech.glide.Glide
+import com.fanxan.foodmarket.FoodMarket
 import com.fanxan.foodmarket.R
+import com.fanxan.foodmarket.model.response.login.User
+import com.google.gson.Gson
+import kotlinx.android.synthetic.main.fragment_home.ivProfile
 import kotlinx.android.synthetic.main.fragment_profile.*
 
 class ProfileFragment : Fragment() {
@@ -27,7 +32,16 @@ class ProfileFragment : Fragment() {
         viewPager.adapter = sectionPagerAdapter
         tabLayout.setupWithViewPager(viewPager)
 
+        var user = FoodMarket.getApp().getUser()
+        var userResponse = Gson().fromJson(user, User::class.java)
+        tvName.setText(userResponse.name)
+        tvEmail.setText(userResponse.email)
 
+        if(!userResponse.profilePhotoUrl.isNullOrEmpty()){
+            Glide.with(requireActivity())
+                .load(userResponse.profilePhotoUrl)
+                .into(ivPicture)
+        }
 
     }
 }
